@@ -88,19 +88,19 @@ git pull
 echo
 
 echo_info "🔎  Ensure code conforms"
-rubocop
+bundle exec rubocop -c .rubocop.yml
 echo
 
 echo_info "👁  Ensure code is correct"
-rspec
+bundle exec rspec
 echo
 
 echo_info "🚸  Bumping $VERSION_TYPE version, creating a tag, and push to github"
-gem bump --tag --version $VERSION_TYPE
+bundle exec gem bump --tag --version $VERSION_TYPE
 echo
 
 echo_info "👷  Building gem package"
-rake build
+bundle exec rake build
 LATEST_GEM=`ls -tr pkg/ | tail -1`
 echo
 
@@ -114,6 +114,6 @@ GEM_NAME=${BASH_REMATCH[1]}
 GEM_VERSION=${BASH_REMATCH[2]}
 PACKAGE_PATH="pkg/$LATEST_GEM"
 echo_info "🌩  Pushing gem package to package cloud"
-package_cloud push $PACKAGE_CLOUD_REPOS $PACKAGE_PATH
+bundle exec package_cloud push $PACKAGE_CLOUD_REPOS $PACKAGE_PATH
 echo
 echo_info "👍  $GEM_NAME $GEM_VERSION released"
