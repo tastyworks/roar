@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency "tastyworks-representable", "2.3.0.2"
+  s.add_runtime_dependency "tastyworks-representable", "2.3.0.3"
 
   s.add_development_dependency "rake", ">= 0.10.1"
   s.add_development_dependency "test_xml", "0.1.6"

@@ -86,12 +86,12 @@ module Roar
 
           # Per-model links.
           def links(&block)
-            nested(:_links, :inherit => true, &block)
+            nested(:_links, :inherit => true, :as => '_links', &block)
           end
 
           # TODO: always create _links.
           def has_one(name)
-            property :_links, :inherit => true, :use_decorator => true do # simply extend the Decorator _links.
+            property :_links, :inherit => true, :use_decorator => true, :as => '_links' do # simply extend the Decorator _links.
               property "#{name}_id", :as => name
             end
           end
