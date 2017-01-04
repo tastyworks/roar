@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "tastyworks-representable", "2.3.0.3"
+  s.add_development_dependency 'package_cloud', '0.2.29'
 
   s.add_development_dependency "rake", ">= 0.10.1"
   s.add_development_dependency "test_xml", "0.1.6"
